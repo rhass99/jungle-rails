@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv='Content-Type'>
+</head>
+<body>
+  <h1>Thank you for your order!</h1>
+  <% @order.line_items.each do |item| %>
+    <%= render 'orders/item', product: item.product, quantity: item.quantity.to_i %>
+  <% end %>
+  <hr>
+  <h4>Order Total: <%= number_to_currency(@order.line_items.reduce(0) {|sum, item| sum + (item.product.price * item.quantity) }) %></h4>
+</body>
+</html>

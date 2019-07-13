@@ -1,0 +1,7 @@
+<%= image_tag(product.image, size: "100x100") %>
+<h4><%= product.name %></h4>
+<p><%= product. description %></p>
+
+<p>Price: <%= number_to_currency(product.price) %> x <%= quantity %></p>
+
+<p>Item total: <%= number_to_currency(product.price * quantity) %></p>
